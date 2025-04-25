@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/countries_graph"
+    app:startDestination="@id/Countries_Catalog">
+
+    <fragment
+        android:id="@+id/Countries_Catalog"
+        android:name="com.mezzyservices.countriesapp.countrybrowser.catalog.CountryListFragment"
+        tools:layout="@layout/fragment_country_list"
+        android:label="@string/list">
+        <action
+            android:id="@+id/Catalog_to_Detail"
+            app:destination="@id/Country_Detail"
+            app:enterAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/Country_Detail"
+        android:name="com.mezzyservices.countriesapp.countrybrowser.detail.CountryDetailFragment"
+        tools:layout="@layout/fragment_country_detail"
+        android:label="@string/data">
+        <action android:id="@+id/Detail_To_Catalog"
+            app:destination="@id/Countries_Catalog" />
+        <argument
+            android:name="country"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
+</navigation>
